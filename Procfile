@@ -1,0 +1,1 @@
+web: gunicorn datasecurity.wsgi --log-file -

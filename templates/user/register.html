@@ -1,0 +1,27 @@
+{% extends 'partials/base.html' %} <br />
+{% block title %} Register {% endblock %} <br />
+{% load crispy_forms_tags %} <br />
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-lg-6 offset-md-1 offset-lg-3">
+			<div class="card shadow">
+				<div class="card-header">Registration Form</div>
+				<div class="card-body">
+					<form method="POST">
+						{% csrf_token %} {{ form|crispy}}
+						<input
+							class="btn btn-primary btn-sm mt-2"
+							type="submit"
+							value="Register"
+						/>
+					</form>
+					<hr />
+					<span>Already have an account?</span>
+					<a href="{% url 'user-login' %}"> Login</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
