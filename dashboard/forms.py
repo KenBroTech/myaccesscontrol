@@ -1,5 +1,5 @@
 from django import forms
-from . models import CaesarEncrypt, AESEncrypt, cautionModel
+from . models import CaesarEncrypt, cautionModel
 
 
 class CaesarEncryptForm(forms.ModelForm):
@@ -8,10 +8,10 @@ class CaesarEncryptForm(forms.ModelForm):
         model = CaesarEncrypt
 
 
-class AESEncryptForm(forms.ModelForm):
-    class Meta:
-        fields = ['message']
-        model = AESEncrypt
+# class AESEncryptForm(forms.ModelForm):
+#     class Meta:
+#         fields = ['message']
+#         model = AESEncrypt
 
 class cautionModelForm(forms.ModelForm):
     class Meta:

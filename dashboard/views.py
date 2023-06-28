@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .forms import CaesarEncryptForm, AESEncryptForm, cautionModelForm
+from .forms import CaesarEncryptForm, cautionModelForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -23,18 +23,18 @@ def caesar(request):
     return render(request, 'dashboard/caesar.html', context)
 
 
-def aes(request):
-    if request.method == 'POST':
-        form = AESEncryptForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('dashboard-index')
-    else:
-        form = AESEncryptForm()
-    context = {
-        'form':form
-    }
-    return render(request, 'dashboard/aes.html', context)
+# def aes(request):
+#     if request.method == 'POST':
+#         form = AESEncryptForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('dashboard-index')
+#     else:
+#         form = AESEncryptForm()
+#     context = {
+#         'form':form
+#     }
+#     return render(request, 'dashboard/aes.html', context)
 
 
 def caution(request):

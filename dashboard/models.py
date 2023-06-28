@@ -1,5 +1,4 @@
 from django.db import models
-from Crypto.Cipher import AES
 from secrets import token_bytes
 
 # Create your models here.
@@ -27,24 +26,24 @@ class CaesarEncrypt(models.Model):
 
 
 
-class AESEncrypt(models.Model):
-    message = models.CharField(max_length=200)
-    encrypted_message = models.CharField(max_length=200, blank=True)
-    date = models.DateTimeField(auto_now_add=True)
+# class AESEncrypt(models.Model):
+#     message = models.CharField(max_length=200)
+#     encrypted_message = models.CharField(max_length=200, blank=True)
+#     date = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        ordering = ['-date']
-        verbose_name_plural = 'AES'
+#     class Meta:
+#         ordering = ['-date']
+#         verbose_name_plural = 'AES'
 
-    def save(self, *args, **kwargs):
-        key = token_bytes(16)
+#     def save(self, *args, **kwargs):
+#         key = token_bytes(16)
 
-        cipher = AES.new(key, AES.MODE_EAX)
-        nonce = cipher.nonce
-        ciphertext, tag = cipher.encrypt_and_digest(self.message.encode('ascii'))
-        nonce, ciphertext, tag 
-        self.encrypted_message = ciphertext
-        return super().save(*args, **kwargs)
+#         cipher = AES.new(key, AES.MODE_EAX)
+#         nonce = cipher.nonce
+#         ciphertext, tag = cipher.encrypt_and_digest(self.message.encode('ascii'))
+#         nonce, ciphertext, tag 
+#         self.encrypted_message = ciphertext
+#         return super().save(*args, **kwargs)
 
 
 
